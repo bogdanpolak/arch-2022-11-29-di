@@ -24,9 +24,6 @@ object FormMain: TFormMain
     BevelOuter = bvLowered
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 728
     object Button1: TButton
       AlignWithMargins = True
       Left = 4
@@ -36,6 +33,7 @@ object FormMain: TFormMain
       Align = alLeft
       Caption = 'Button1'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       AlignWithMargins = True

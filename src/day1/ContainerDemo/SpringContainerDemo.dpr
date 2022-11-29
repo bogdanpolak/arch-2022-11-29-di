@@ -3,7 +3,8 @@
 uses
   Vcl.Forms,
   fMain in 'fMain.pas' {FormMain},
-  ConsoleForVcl in 'ConsoleForVcl.pas';
+  ConsoleForVcl in 'ConsoleForVcl.pas',
+  DemoSimpleService in 'DemoSimpleService.pas';
 
 {$R *.res}
 

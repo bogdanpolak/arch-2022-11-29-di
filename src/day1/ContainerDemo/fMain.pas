@@ -15,6 +15,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     fContainers: IList<TContainer>;
@@ -29,9 +30,15 @@ var
 implementation
 
 uses
-  ConsoleForVcl;
+  ConsoleForVcl,
+  DemoSimpleService;
 
 {$R *.dfm}
+
+procedure TFormMain.Button1Click(Sender: TObject);
+begin
+  TDemoSimpleService.Run(CreateNewContainer);
+end;
 
 function TFormMain.CreateNewContainer: TContainer;
 begin

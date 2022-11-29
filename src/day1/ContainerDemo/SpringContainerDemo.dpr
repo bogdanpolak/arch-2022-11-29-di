@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   fMain in 'fMain.pas' {FormMain},
   ConsoleForVcl in 'ConsoleForVcl.pas',
-  DemoSimpleService in 'DemoSimpleService.pas';
+  DemoSimpleService in 'DemoSimpleService.pas',
+  DemoLottoMachineFactory in 'DemoLottoMachineFactory.pas';
 
 {$R *.res}
 

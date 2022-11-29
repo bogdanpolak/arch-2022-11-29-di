@@ -44,6 +44,7 @@ object FormMain: TFormMain
       Align = alLeft
       Caption = 'Button2'
       TabOrder = 1
+      OnClick = Button2Click
     end
     object Button3: TButton
       AlignWithMargins = True

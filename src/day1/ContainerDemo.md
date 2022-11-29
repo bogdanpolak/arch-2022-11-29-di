@@ -1,4 +1,4 @@
-## Zad.1. Kontroler, klasy Transient oraz Singleton
+## Zad.1) Kontroler, klasy Transient oraz Singleton
 
 ```
   IService = interface
@@ -11,23 +11,24 @@
   end;
 ```
 
-1. Przygotowanie 
-   - Dodaj klasę `TService`, która implementuje interfejs `IService`. 
+1. Przygotowanie typów
+   - Dodaj brakujące idetyfikatory GUID (sktót: `Shift`+`Control`+`D`)
+   - Dodaj klasę `TService`, która implementuje interfejs `IService`
    - Do `TService` dodaj konstruktor, który ma zainicjować "w miarę” unikalną tekstową nazwa obiektu (sposób dowolny: losowa liczba, time stamp, GUID, etc.). Nazwę trzeba zapisać w prywatnym polu i zwrócić jako wynik metody `WhoAmI`
-   - Zaimplementuj konstruktor `Create` i metodę `GetService` w klasie `TCompositionRoot`. Jak widać w deklaracji powyżej interfejs `IService` ma być wstrzykiwany przez konstruktor do obiektu klasy `TCompositionRoot` i trzeba go przechować w prywatnym polu
-1. Rejestracja
-   - Zarejestruj typ `TService` w `GlobalContainer` (lub w nowo stworzonym kontenerze DI typu `TController`)
-   - Zarejestruj typ `TCompositionRoot` jak wyżej
+   - W klasie `TCompositionRoot` Zaimplementuj konstruktor `Create` i metodę `GetService`. Jak widać w deklaracji powyżej `IService` ma być wstrzykiwany przez konstruktor do `TCompositionRoot`, czyli trzeba go przechować w prywatnym polu
+1. Rejestracja typów
+   - Zarejestruj `TService` w `GlobalContainer` (lub w nowo stworzonym kontenerze DI typu `TContainer`)
+   - Zarejestruj `TCompositionRoot` w tym samym kontenerze
 1. Resolve
-   - Zrób 2x resolve na `TCompositionRoot` i porównaj nazwy dzieci wywołując metody `WhoAmI`. Sprawdź czy zwracane nazwy są takie same czy różne i zastanów się dlaczego
-   - Sprawdź wycieki pamięci (`ReportMemoryLeaksOnShutdown`)
+   - Zrób 2x resolve na `TCompositionRoot` i porównaj nazwy dzieci wywołując metody `WhoAmI`. Sprawdź czy zwracane nazwy są takie same czy różne
+   - Sprawdź wycieki pamięci `ReportMemoryLeaksOnShutdown := true;`
    - Jeśli masz wycieki pamięci spróbuj je usunąć
-1. Kolejne próby
+1. Dodatkowe próby / ekspaerymenty
    1. Zarejestruj `TService` jako Singleton i porównaj wyniki
    2. Zarejestruj `TCompositionRoot` jako Singleton i porównaj wyniki, jeżeli pojawiły się błędy pamięci w czasie uruchomienia to spróbuj je zlikwidować
 1. Omów wnioski i różnice z innymi uczestnikami szkolenia
 
-## Zad.2. Lotto Draw Machine
+## Zad.2) Lotto Draw Machine
 
 ```
 type
@@ -36,7 +37,7 @@ type
   end;
 
   IMachineFactory = interface(IInvokable)
-    function GetMachine(
+    function BuildDrawMachine(
       const slBalls: TStringList;
       const aNumberOfBalls: Integer): ILottoDrawMachine;
   end;
@@ -46,7 +47,8 @@ type
   end;
 ```
 
-1. Implementacja i weryfikacja klasy `ILottoDrawMachine`
+1. Dodaj brakujące idetyfikatory GUID
+1. Implementacja i weryfikacja klasy `TLottoDrawMachine`
    - Parametry konstruktora: `aNumberOfBalls` zawiera informację ile kul trzeba wylosować, `slBalls` jest obiektem `TStringList`, który zawiera listę kul, każda linia w liście to osobna kula. Zapisana tekstem, np. kula 11 to `'11'`
    - Stwórz implementację interfejsu `ILottoDrawMachine`, która w konstruktorze miesza kule z `slBalls` i wybiera `aNumberOfBalls` zwycięskich kul
    - Metoda `GetLuckyNumbers` ma zwrócić zwycięskie kule jako `TArray<string>`

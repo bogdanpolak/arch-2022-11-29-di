@@ -17,6 +17,7 @@ type
     Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     fContainers: IList<TContainer>;
@@ -33,7 +34,8 @@ implementation
 uses
   ConsoleForVcl,
   DemoSimpleService,
-  DemoLottoMachineFactory;
+  DemoLottoMachineFactory,
+  DemoDelegateTo;
 
 {$R *.dfm}
 
@@ -45,6 +47,12 @@ end;
 procedure TFormMain.Button2Click(Sender: TObject);
 begin
   TDemoLottoMachineFactory.Run(CreateNewContainer());
+  fContainers.Clear;
+end;
+
+procedure TFormMain.Button3Click(Sender: TObject);
+begin
+  TDemoDelegateTo.Run(CreateNewContainer);
   fContainers.Clear;
 end;
 

@@ -5,7 +5,8 @@ uses
   fMain in 'fMain.pas' {FormMain},
   ConsoleForVcl in 'ConsoleForVcl.pas',
   DemoSimpleService in 'DemoSimpleService.pas',
-  DemoLottoMachineFactory in 'DemoLottoMachineFactory.pas';
+  DemoLottoMachineFactory in 'DemoLottoMachineFactory.pas',
+  DemoDelegateTo in 'DemoDelegateTo.pas';
 
 {$R *.res}
 

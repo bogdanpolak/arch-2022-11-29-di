@@ -55,6 +55,7 @@ object FormMain: TFormMain
       Align = alLeft
       Caption = 'Button3'
       TabOrder = 2
+      OnClick = Button3Click
     end
   end
 end

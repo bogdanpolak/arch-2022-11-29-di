@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8D4B9E9C-A804-4187-BF93-2D30EBCFF591}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="exercises\cw01_ConsoleService.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="exercises\cw02_LazyService.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="exercises\cw03_ActivatorExtnesion.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="exercises\cw04_DbContextFactory.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="exercises\cw05_FactoryFunction.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="exercises\cw06_StrategyByContainer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="cw01_ConsoleService">
+        <MSBuild Projects="exercises\cw01_ConsoleService.dproj"/>
+    </Target>
+    <Target Name="cw01_ConsoleService:Clean">
+        <MSBuild Projects="exercises\cw01_ConsoleService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw01_ConsoleService:Make">
+        <MSBuild Projects="exercises\cw01_ConsoleService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cw02_LazyService">
+        <MSBuild Projects="exercises\cw02_LazyService.dproj"/>
+    </Target>
+    <Target Name="cw02_LazyService:Clean">
+        <MSBuild Projects="exercises\cw02_LazyService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw02_LazyService:Make">
+        <MSBuild Projects="exercises\cw02_LazyService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cw03_ActivatorExtnesion">
+        <MSBuild Projects="exercises\cw03_ActivatorExtnesion.dproj"/>
+    </Target>
+    <Target Name="cw03_ActivatorExtnesion:Clean">
+        <MSBuild Projects="exercises\cw03_ActivatorExtnesion.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw03_ActivatorExtnesion:Make">
+        <MSBuild Projects="exercises\cw03_ActivatorExtnesion.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cw04_DbContextFactory">
+        <MSBuild Projects="exercises\cw04_DbContextFactory.dproj"/>
+    </Target>
+    <Target Name="cw04_DbContextFactory:Clean">
+        <MSBuild Projects="exercises\cw04_DbContextFactory.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw04_DbContextFactory:Make">
+        <MSBuild Projects="exercises\cw04_DbContextFactory.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cw05_FactoryFunction">
+        <MSBuild Projects="exercises\cw05_FactoryFunction.dproj"/>
+    </Target>
+    <Target Name="cw05_FactoryFunction:Clean">
+        <MSBuild Projects="exercises\cw05_FactoryFunction.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw05_FactoryFunction:Make">
+        <MSBuild Projects="exercises\cw05_FactoryFunction.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="cw06_StrategyByContainer">
+        <MSBuild Projects="exercises\cw06_StrategyByContainer.dproj"/>
+    </Target>
+    <Target Name="cw06_StrategyByContainer:Clean">
+        <MSBuild Projects="exercises\cw06_StrategyByContainer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cw06_StrategyByContainer:Make">
+        <MSBuild Projects="exercises\cw06_StrategyByContainer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="cw01_ConsoleService;cw02_LazyService;cw03_ActivatorExtnesion;cw04_DbContextFactory;cw05_FactoryFunction;cw06_StrategyByContainer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="cw01_ConsoleService:Clean;cw02_LazyService:Clean;cw03_ActivatorExtnesion:Clean;cw04_DbContextFactory:Clean;cw05_FactoryFunction:Clean;cw06_StrategyByContainer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="cw01_ConsoleService:Make;cw02_LazyService:Make;cw03_ActivatorExtnesion:Make;cw04_DbContextFactory:Make;cw05_FactoryFunction:Make;cw06_StrategyByContainer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

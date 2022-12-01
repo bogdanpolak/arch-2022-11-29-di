@@ -7,7 +7,7 @@ uses
   System.TimeSpan;
 
 type
-  INow = interface
+  INow = interface(IInvokable)
     ['{933FB19C-80B7-4484-9047-7110A66AAE19}']
     function GetNow(): TDateTime;
   end;

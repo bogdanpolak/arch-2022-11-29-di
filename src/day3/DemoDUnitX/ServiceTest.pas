@@ -7,7 +7,7 @@ uses
   System.TimeSpan,
   DUnitX.TestFramework,
   Service,
-  TestDouble.StaticNow;
+  Spring.Mocking;
 
 type
 
@@ -15,7 +15,7 @@ type
   TMyTestObject = class
   private
     fSut: TRarelyUsedFeature;
-    fStaticNow: TStaticNow;
+    fNowMock: Mock<INow>;
   public
     [Setup]
     procedure Setup;
@@ -44,8 +44,7 @@ type
 
 procedure TMyTestObject.Setup;
 begin
-  fStaticNow := TStaticNow.Create();
-  fSut := TRarelyUsedFeature.Create(fStaticNow);
+  fSut := TRarelyUsedFeature.Create(fNowMock);
 end;
 
 procedure TMyTestObject.TearDown;
@@ -56,15 +55,16 @@ end;
 procedure TMyTestObject.TimePassed;
 var
   aNowDateTime: TDateTime;
-  timeSpan: TTimeSpan;
+  TimeSpan: TTimeSpan;
 begin
-  fStaticNow.Initialize(Day(1).December(2022).At(16, 0));
+  fNowMock.Setup().Returns<TDateTime>(Day(1).December(2022).At(16, 0))
+    .When.GetNow();
 
-  timeSpan := fSut.TimePassed(Day(30).November(2022).At(12,0));
+  TimeSpan := fSut.TimePassed(Day(30).November(2022).At(12, 0));
 
   Assert.AreEqual(1, TimeSpan.Days);
-  Assert.AreEqual(4, TimeSpan.Hours);
-  Assert.AreEqual(0, TimeSpan.Minutes);
+  Assert.AreEqual(4, TimeSpan.hours);
+  Assert.AreEqual(0, TimeSpan.minutes);
 end;
 
 { TDayHelper }
